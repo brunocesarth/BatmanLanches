@@ -1,4 +1,5 @@
-﻿using BatmanLanches.Context;
+﻿using BatmanLanches.Areas.Admin.Servicos;
+using BatmanLanches.Context;
 using BatmanLanches.Models;
 using BatmanLanches.Repositories;
 using BatmanLanches.Repositories.Interfaces;
@@ -40,6 +41,7 @@ public class Startup
         services.AddTransient<ICategoriaRepository, CategoriaRepository>();
         services.AddTransient<IPedidoRepository, PedidoRepository>();
         services.AddScoped<ISeedUserRoleInitial, SeedUserRoleInitial>();
+        services.AddScoped<RelatorioVendasService>();
 
         services.AddAuthorization(options =>
         {
