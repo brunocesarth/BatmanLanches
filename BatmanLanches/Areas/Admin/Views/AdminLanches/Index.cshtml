@@ -19,7 +19,7 @@ Total de Lanches: @Model.TotalRecordCount
 </div>
 <p>
 <p>
-    <a class="btn btn-warning" asp-action="Create">Novo Produto</a>
+    <a class="btn btn-warning" asp-action="Create">Novo Produto</a> | <a class="btn btn-danger" asp-controller="AdminLanchesReport" asp-action="LanchesCategoriaReport">Gerar Relatório</a> | <a class="btn btn-dark" asp-controller="AdminLanchesReport" asp-action="LanchesCategoriaPDF">Gerar PDF</a>
 </p>
 <div class="row">
     <div class="col-md-10">
@@ -27,47 +27,47 @@ Total de Lanches: @Model.TotalRecordCount
             <thead>
                 <tr>
                     <th>
-                        @Html.DisplayNameFor(model => model.Nome)
+                            @Html.DisplayNameFor(model => model.Nome)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.DescricaoCurta)
+                            @Html.DisplayNameFor(model => model.DescricaoCurta)
 
                     <th>
-                        @Html.DisplayNameFor(model => model.Preco)
+                                @Html.DisplayNameFor(model => model.Preco)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.IsLanchePreferido)
+                                @Html.DisplayNameFor(model => model.IsLanchePreferido)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.EmEstoque)
+                                @Html.DisplayNameFor(model => model.EmEstoque)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Categoria)
+                                @Html.DisplayNameFor(model => model.Categoria)
                     </th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model)
-                {
+                    @foreach (var item in Model)
+                    {
                     <tr>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Nome)
+                                @Html.DisplayFor(modelItem => item.Nome)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.DescricaoCurta)
+                                @Html.DisplayFor(modelItem => item.DescricaoCurta)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Preco)
+                                @Html.DisplayFor(modelItem => item.Preco)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.IsLanchePreferido)
+                                @Html.DisplayFor(modelItem => item.IsLanchePreferido)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.EmEstoque)
+                                @Html.DisplayFor(modelItem => item.EmEstoque)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Categoria.CategoriaNome)
+                                @Html.DisplayFor(modelItem => item.Categoria.CategoriaNome)
                         </td>
                         <td>
                             <a asp-action="Edit" asp-route-id="@item.LancheId">Editar</a> |
@@ -75,7 +75,7 @@ Total de Lanches: @Model.TotalRecordCount
                             <a asp-action="Delete" asp-route-id="@item.LancheId">Excluir</a>
                         </td>
                     </tr>
-                }
+                    }
             </tbody>
         </table>
     </div>

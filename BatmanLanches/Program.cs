@@ -4,6 +4,7 @@ using BatmanLanches.Models;
 using BatmanLanches.Repositories;
 using BatmanLanches.Repositories.Interfaces;
 using BatmanLanches.Services;
+using FastReport.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using ReflectionIT.Mvc.Paging;
@@ -25,6 +26,8 @@ builder.Services.AddTransient<IPedidoRepository, PedidoRepository>();
 builder.Services.AddScoped<ISeedUserRoleInitial, SeedUserRoleInitial>();
 builder.Services.AddScoped<RelatorioVendasService>();
 builder.Services.AddScoped<GraficoVendasService>();
+builder.Services.AddScoped<RelatorioLanchesService>();
+builder.Services.AddFastReport();
 
 builder.Services.AddAuthorization(options =>
 {
@@ -39,6 +42,8 @@ builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddScoped(sp => CarrinhoCompra.GetCarrinho(sp));
 
 builder.Services.AddControllersWithViews();
+
+FastReport.Utils.RegisteredObjects.AddConnection(typeof(MsSqlDataConnection));
 
 builder.Services.AddPaging(options =>
 {
@@ -63,6 +68,8 @@ else
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
+app.UseFastReport();
 app.UseRouting();
 
 CriarPerfisUsuarios(app);
